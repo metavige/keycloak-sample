@@ -41,6 +41,8 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) {
     final KeycloakAuthenticationProvider provider = keycloakAuthenticationProvider();
+    // 這邊在比對角色名稱的時候，會加入 "ROLE_"
+    // 因為 keyCloak 在存放 Authority (ROLE) 的時候，會將傳入的 Role 加上 "ROLE_"
     provider.setGrantedAuthoritiesMapper(new SimpleAuthorityMapper());
     auth.authenticationProvider(provider);
   }
