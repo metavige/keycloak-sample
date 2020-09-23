@@ -1,0 +1,26 @@
+#spring:
+#  security:
+#    oauth2:
+#      client:
+#
+#        registration:
+#          keycloak:
+#            clientId: sample
+#            clientSecret: ca326140-ca6c-4837-bdc3-f79a4869a9b9
+#
+
+
+keycloak:
+  realm: sample
+  auth-server-url: http://keycloak.docker.internal/auth
+  ssl-required: external
+  resource: sample-app
+  public-client: true
+  use-resource-role-mappings: true
+  principal-attribute: preferred_username
+
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: debug
